@@ -63,17 +63,17 @@ def Head(L):
 #   {IsPalindrom(L) benar jika L merupakan kata palindrom yaitu kata yang sama jika dibaca dari kiri atau kanan}
 
 # Realisasi
-def IsEmpety(L):
+def IsEmpty(L):
     return L == []
         
 def IsOneElmt(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return False
     else:
         return Tail(L) == [] and Head(L) == []
         
 def IsMember(X,L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return False
     else:
         if FirstElmt(L) == X:
@@ -82,7 +82,7 @@ def IsMember(X,L):
             return IsMember(X,Tail(L))
         
 def IsPalindrom(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return True
     elif IsOneElmt(L):
         return True
@@ -128,7 +128,7 @@ def IsPalindrom(L):
         
 # Realisasi
 def NbElmt(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return 0
     else:
         return 1 + NbElmt(Tail(L))
@@ -140,31 +140,31 @@ def ElmtkeN(n,L):
         return ElmtkeN(n-1,Tail(L))
         
 def Copy(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return []
     else:
         return Konso(FirstElmt(L),Copy(Tail(L)))
         
 def Inverse(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return []
     else:
         return Konsi(Inverse(Tail(L)), FirstElmt(L))
     
 def Konkat(L1,L2):
-    if IsEmpety(L2):
+    if IsEmpty(L2):
         return L1
     else:
         return Konsi(Konkat(L1,Tail(L2)),FirstElmt(L2))
     
 def SumElmt(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return 0
     else:
         return FirstElmt(L) + SumElmt(Tail(L))
     
 def AvgElmt(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return 0
     else:
         return SumElmt(L) / NbElmt(L)   
@@ -191,23 +191,23 @@ def NbOcc(x,L):
             return  NbOcc(x,Tail(L))
 
 def MaxNB(L):
-    if IsEmpety(L):
+    if IsEmpty(L):
         return [0,0]
     else:
         return [MaxElmt(L),NbOcc(MaxElmt(L),L)]
 
 def AddList(L1,L2):
-    if IsEmpety(L1) and IsEmpety(L2):
+    if IsEmpty(L1) and IsEmpty(L2):
         return []
-    elif IsEmpety(L1) and not IsEmpety(L2):
+    elif IsEmpty(L1) and not IsEmpty(L2):
         return L2
-    elif not IsEmpety(L1) and IsEmpety(L2):
+    elif not IsEmpty(L1) and IsEmpty(L2):
         return L1
     else:
         return Konso(FirstElmt(L1) + FirstElmt(L2), AddList(Tail(L1),Tail(L2)))
     
 # Aplikasi
-print(IsEmpety([]))
+print(IsEmpty([]))
 print(IsOneElmt([2]))
 print(IsMember(2,[4,5,6,7,8,9,0]))
 print(IsPalindrom(['t','e','n','e','t']))

@@ -16,7 +16,7 @@ def GetNilai (MHS):
     return MHS [3]
 
 def MakeSetMhs(M,H):
-    if IsEmpety(H):
+    if IsEmpty(H):
         return [M]
     else:
         if GetNIM(M) == GetNIM(FirstElmt(H)):
@@ -25,7 +25,7 @@ def MakeSetMhs(M,H):
             return Konso(FirstElmt(H), MakeSetMhs(M,Tail(H)))
         
 def avg(HM):
-    if IsEmpety(HM):
+    if IsEmpty(HM):
         return []
     else:
         if AvgElmt(GetNilai(FirstElmt(HM))) >= 70:
@@ -43,10 +43,10 @@ def MaxMHS(HM):
             return MaxMHS(Konso(FirstElmt(HM),Tail(Tail(HM))))
         
 def NotQuiz(Cls,HM):
-    if IsEmpety(HM):
+    if IsEmpty(HM):
         return []
     else:
-        if GetKelas(FirstElmt(HM)) == Cls and IsEmpety(GetNilai(FirstElmt(HM))):
+        if GetKelas(FirstElmt(HM)) == Cls and IsEmpty(GetNilai(FirstElmt(HM))):
             return Konso(FirstElmt(HM),NotQuiz(Cls,Tail(HM)))
         else:
             return NotQuiz(Cls,Tail(HM))
@@ -64,10 +64,10 @@ def MaxMHS2(Cls,HM):
             return MaxMHS2(Cls,Konso(FirstElmt(HM),Tail(Tail(HM))))
         
 def NotQuizAll(HM):
-    if IsEmpety(HM):
+    if IsEmpty(HM):
         return 0
     else:
-        if IsEmpety(GetNilai(FirstElmt(HM))):
+        if IsEmpty(GetNilai(FirstElmt(HM))):
             return 1 + NotQuizAll(Tail(HM))
         else:
             return NotQuizAll(Tail(HM))
