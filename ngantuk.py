@@ -62,6 +62,15 @@ def MaxMHS2(Cls,HM):
             return MaxMHS2(Cls,Tail(HM))
         else:
             return MaxMHS2(Cls,Konso(FirstElmt(HM),Tail(Tail(HM))))
+        
+def NotQuizAll(HM):
+    if IsEmpety(HM):
+        return 0
+    else:
+        if IsEmpety(GetNilai(FirstElmt(HM))):
+            return 1 + NotQuizAll(Tail(HM))
+        else:
+            return NotQuizAll(Tail(HM))
 
 
 usop = MakeMHS('24120024','sopi','c',[90,66,78])
@@ -84,3 +93,5 @@ print(NotQuiz('b',heheheh))
 
 print(MaxMHS2('a',heheheh))
 print(MaxMHS2('b',heheheh))
+
+print(NotQuizAll(heheheh))
