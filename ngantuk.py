@@ -29,7 +29,7 @@ def avg(HM):
         return []
     else:
         if AvgElmt(GetNilai(FirstElmt(HM))) >= 70:
-            return Konso(FirstElmt(HM),avg(Tail(HM)))
+            return MakeSetMhs(FirstElmt(HM),avg(Tail(HM)))
         else:
             return avg(Tail(HM))
         
@@ -40,14 +40,14 @@ def MaxMHS(HM):
         if AvgElmt(GetNilai(FirstElmt(HM))) <= AvgElmt(GetNilai(FirstElmt(Tail(HM)))):
             return MaxMHS(Tail(HM))
         else:
-            return MaxMHS(Konso(FirstElmt(HM),Tail(Tail(HM))))
+            return MaxMHS(MakeSetMhs(FirstElmt(HM),Tail(Tail(HM))))
         
 def NotQuiz(Cls,HM):
     if IsEmpty(HM):
         return []
     else:
         if GetKelas(FirstElmt(HM)) == Cls and IsEmpty(GetNilai(FirstElmt(HM))):
-            return Konso(FirstElmt(HM),NotQuiz(Cls,Tail(HM)))
+            return MakeSetMhs(FirstElmt(HM),NotQuiz(Cls,Tail(HM)))
         else:
             return NotQuiz(Cls,Tail(HM))
         
@@ -61,7 +61,7 @@ def MaxMHS2(Cls,HM):
         if AvgElmt(GetNilai(FirstElmt(HM))) <= AvgElmt(GetNilai(FirstElmt(Tail(HM)))) and GetKelas(FirstElmt(HM)) != Cls:
             return MaxMHS2(Cls,Tail(HM))
         else:
-            return MaxMHS2(Cls,Konso(FirstElmt(HM),Tail(Tail(HM))))
+            return MaxMHS2(Cls,MakeSetMhs(FirstElmt(HM),Tail(Tail(HM))))
         
 def NotQuizAll(HM):
     if IsEmpty(HM):
