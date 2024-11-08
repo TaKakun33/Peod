@@ -71,6 +71,15 @@ def NotQuizAll(HM):
             return 1 + NotQuizAll(Tail(HM))
         else:
             return NotQuizAll(Tail(HM))
+        
+def TotalMHSLulus(HM):
+    if IsEmpty(HM):
+        return 0
+    else:
+        if AvgElmt(GetNilai(FirstElmt(HM))) >= 70:
+            return 1 + TotalMHSLulus(Tail(HM))
+        else:
+            return TotalMHSLulus(Tail(HM))
 
 
 usop = MakeMHS('24120024','sopi','c',[90,66,78])
@@ -95,3 +104,5 @@ print(MaxMHS2('a',heheheh))
 print(MaxMHS2('b',heheheh))
 
 print(NotQuizAll(heheheh))
+
+print(TotalMHSLulus(heheheh))
