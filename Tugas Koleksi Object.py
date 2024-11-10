@@ -1,3 +1,11 @@
+# Kelompok 6
+# AnggotaKelompok :
+# Akmal Kafli Anan (24060124120042)
+# Ali Maskan Ferry Purwanto (24060124130072)
+# Azka Wayasy 
+# Aqiatillah Rezi Zhafran (24060124140124)
+# Basil Aiman Haryadi ()
+
 from list import *
 
 # DEFINISI DAN SPESIFIKASI TYPE
@@ -38,9 +46,56 @@ def GetNilai (MHS):
 def MakeMHS (nim,nama,kelas,nilai):
     return [nim,nama,kelas,nilai]
 
-# DEFINISI DAN SPESIFIKASI KONSTRUKTOR
+# DEFINISI DAN SPESIFIKASI PREDIKAT LIST
+# IsEmpty List -> boolean
+#   {IsEmpty(L) benar jika list kosong}
+# 
+# IsOneElmt: List -> boolean
+#   {IsOneElmt (X,L) adalah benar jika list L hanya mempunyai satu elemen}
+
+# Realisasi
+def IsEmpty(L):
+    return L == []
+        
+def IsOneElmt(L):
+    if IsEmpty(L):
+        return False
+    else:
+        return Tail(L) == [] and Head(L) == []
+    
+    
+# DEFINISI DAN SPESIFIKASI FUNGSI YANG MENGOPERASIKAN LIST
+# NbElmt: List → integer
+#   {NbElmt (L): Menghasilkan banyaknya elemen list, nol jika kosong}
+# 
+# SumElmt: List of integer -> integer
+#   {SumElmt(L) menghasilkan jumlahan dari setiap elemen di list L}
+# 
+# AvgElmt: List of integer -> integer
+#   {AvgEmlt(L) menghasilkan nilai rata-rata}
+
+# Realisasi
+def NbElmt(L):
+    if IsEmpty(L):
+        return 0
+    else:
+        return 1 + NbElmt(Tail(L))
+
+def SumElmt(L):
+    if IsEmpty(L):
+        return 0
+    else:
+        return FirstElmt(L) + SumElmt(Tail(L))
+    
+def AvgElmt(L):
+    if IsEmpty(L):
+        return 0
+    else:
+        return SumElmt(L) / NbElmt(L)   
+ 
+# DEFINISI DAN SPESIFIKASI KONSTRUKTOR SET MHS 
 # MakeSetMhs: Mhs, set_of_mhs  --> set_of_mhs
-#   {MakeSetMhs(M,H) Menambahkan mahasiswa mhs ke dalam setMHS dengan syarat saat menambahkan elemen mahasiswa baru harus menggunakan nim yang unik.
+#   {MakeSetMhs(M,H) Menambahkan mahasiswa mhs ke dalam set_of_MHS dengan syarat saat menambahkan elemen mahasiswa baru harus menggunakan NIM yang unik.
 
 # Realisasi 
 def MakeSetMhs(M,H):
@@ -51,7 +106,7 @@ def MakeSetMhs(M,H):
             return H
         else:
             return Konso(FirstElmt(H), MakeSetMhs(M,Tail(H)))
-
+           
 # DEFINISI DAN SPESIFIKASI OPERATOR
 # Jumlah_Lulus: set_of_mhs --> set_of_mhs 
 #   {Jumlah_Lulus(HM) Mengembalikan banyaknya mahasiswa yang lulus (nilai rata-rata >= 70) dari semua kelas
@@ -62,7 +117,7 @@ def MakeSetMhs(M,H):
 # NilaiTertinggi: set_of_mhs --> integer
 # {NilaiTertinggi(HM) Mengembalikan nilai tertinggi dari semua kelas.}
 
-# TertinggiKelas: Charracter, set_of_mhs --> set_of_mhs
+# TertinggiKelas: Character, set_of_mhs --> set_of_mhs
 # {Mengembalikan mahasiswa yang mendapatkan nilai tertinggi di kelas class_name.}
 
 # Jumlah_Tidak_Mengerjakan: set_of_mhs: --> integer
