@@ -206,19 +206,3 @@ def AddList(L1,L2):
     else:
         return Konso(FirstElmt(L1) + FirstElmt(L2), AddList(Tail(L1),Tail(L2)))
     
-# Aplikasi
-print(IsEmpty([]))
-print(IsOneElmt([2]))
-print(IsMember(2,[4,5,6,7,8,9,0]))
-print(IsPalindrom(['t','e','n','e','t']))
-
-print(ElmtkeN(3,[4,5,6,7,8,9,0]))
-print(Copy([4,5,6,7,8,9,0]))
-print(Inverse([4,5,6,7,8,9,0]))
-print(Konkat([1,2,3],[9,8,7]))
-print(SumElmt([1,2,3,5,6]))
-print(AvgElmt([1,2,3]))
-print(MaxElmt([1,1,1,1]))
-print(NbOcc(7,[1,2,7,7,9,9,5,5,9]))
-print(MaxNB([1,2,7,7,9,9,5,5,9]))
-print(AddList([1,2,3,10],[4,7,6]))
