@@ -98,14 +98,14 @@ def AvgElmt(L):
 #   {MakeSetMhs(M,H) Menambahkan mahasiswa mhs ke dalam set_of_MHS dengan syarat saat menambahkan elemen mahasiswa baru harus menggunakan NIM yang unik.
 
 # Realisasi 
-def MakeSetMhs(M,H):
-    if IsEmpty(H):
+def MakeSetMhs(M,HM):
+    if IsEmpty(HM):
         return [M]
     else:
-        if GetNIM(M) == GetNIM(FirstElmt(H)):
-            return H
+        if GetNIM(M) == GetNIM(FirstElmt(HM)):
+            return HM
         else:
-            return Konso(FirstElmt(H), MakeSetMhs(M,Tail(H)))
+            return Konso(FirstElmt(HM), MakeSetMhs(M,Tail(HM)))
            
 # DEFINISI DAN SPESIFIKASI OPERATOR
 # Jumlah_Lulus: set_of_mhs --> set_of_mhs 
@@ -187,7 +187,7 @@ def Lulus(HM):
 
 
 print(Jumlah_Lulus([["24001", "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'B', [22,11,73]],  ["24003", "Dewi", 'C', [11,100,100]]]))
-print(NotQuiz('A',[["24001", "Budi", 'A', [85,99,90] ], ["24002", "Ayu", 'B', [22,11,73]],  ["24003", "Dewi", 'C', []]]))
+print(NotQuiz('A',[["24001", "Budi", 'A', [85,99,90] ], ["24002", "Ayu", 'A', [22,11,73]],  ["24003", "Dewi", 'C', []]]))
 print(NilaiTertinggi([["24001", "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'B', [22,11,73]],  ["24003", "Dewi", 'C', [11,100,100]]]))
 print(TertinggiKelas('C',[['24001', "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'C', [22,11,73]] , ["24003", "Dewi", 'C', [100,100,100]]]))
 print(Jumlah_Tidak_Mengerjakan([["24001", "Budi", 'A',[]], ["24002", "Ayu", 'B', [22,11,73]] , ["24003", "Dewi", 'C', [100,100,100]]]) )
