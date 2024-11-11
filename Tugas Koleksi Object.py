@@ -2,9 +2,9 @@
 # AnggotaKelompok :
 # Akmal Kafli Anan (24060124120042)
 # Ali Maskan Ferry Purwanto (24060124130072)
-# Azka Wayasy 
+# Azka Wayasy Al Hafizh (24060124140161)
 # Aqiatillah Rezi Zhafran (24060124140124)
-# Basil Aiman Haryadi ()
+# Basil Ayman Hariadi (24060124140160)
 
 from list import *
 
@@ -38,9 +38,10 @@ def GetKelas (MHS):
 def GetNilai (MHS):
     return MHS [3]
 
+
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR
 # MakeMhs: string, string, character, list of integer  --> Mhs
-#   {MakeMhs(nim, nama, kelas, nilai) membentuk sebuah mahasiswa dengan dengan nim, nama, kelas dan nilai berbentuk list of integer.
+#   {MakeMhs(nim, nama, kelas, nilai) membentuk sebuah mahasiswa dengan dengan nim, nama, kelas dan nilai berbentuk list of integer.}
 
 # Realisasi
 def MakeMHS (nim,nama,kelas,nilai):
@@ -92,6 +93,9 @@ def AvgElmt(L):
         return 0
     else:
         return SumElmt(L) / NbElmt(L)   
+
+# DEFINISI DAN SPESIFIKASI TYPE
+# {Set of Mhs adalah himpunan yang berisi data mahasiswa, Set diimplementasikan menggunakan list of Mhs yang terurut membesar berdasarkan NIM dan tidak ada elemen yang sama (NIM unik)}
  
 # DEFINISI DAN SPESIFIKASI KONSTRUKTOR SET MHS 
 # MakeSetMhs: Mhs, set_of_mhs  --> set_of_mhs
@@ -147,7 +151,7 @@ def NotQuiz(Cls,HM):
         
 def NilaiTertinggi(HM):
     if IsOneElmt(HM):
-        return AvgElmt(GetNilai(FirstElmt(HM)))
+        return GetNilai(FirstElmt(HM))
     else:
         if AvgElmt(GetNilai(FirstElmt(HM))) <= AvgElmt(GetNilai(FirstElmt(Tail(HM)))):
             return NilaiTertinggi(Tail(HM))
@@ -185,9 +189,10 @@ def Lulus(HM):
         else:
             return Lulus(Tail(HM))
 
-
+# Aplikasi
+print(MakeSetMhs(['24005',"Fuad",'B',[20,45,70]],[["24001", "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'B', [22,11,73]],  ["24003", "Dewi", 'C', [11,100,100]]]))
 print(Jumlah_Lulus([["24001", "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'B', [22,11,73]],  ["24003", "Dewi", 'C', [11,100,100]]]))
-print(NotQuiz('A',[["24001", "Budi", 'A', [85,99,90] ], ["24002", "Ayu", 'A', [22,11,73]],  ["24003", "Dewi", 'C', []]]))
+print(NotQuiz('A',[["24001", "Budi", 'A', [85,99,90] ], ["24002", "Ayu", 'A', []],  ["24003", "Dewi", 'C', []]]))
 print(NilaiTertinggi([["24001", "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'B', [22,11,73]],  ["24003", "Dewi", 'C', [11,100,100]]]))
 print(TertinggiKelas('C',[['24001', "Budi", 'A', [85,99,90]], ["24002", "Ayu", 'C', [22,11,73]] , ["24003", "Dewi", 'C', [100,100,100]]]))
 print(Jumlah_Tidak_Mengerjakan([["24001", "Budi", 'A',[]], ["24002", "Ayu", 'B', [22,11,73]] , ["24003", "Dewi", 'C', [100,100,100]]]) )
